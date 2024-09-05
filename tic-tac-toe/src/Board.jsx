@@ -4,9 +4,6 @@ import './Board.css';
 function Board() {
     const [isXNext, setIsXNext] = useState(true);
     const [value, setValues] = useState(Array(9).fill(null));
-    let player1 = true;
-    let player2 = false;
-    let winner = false;
     function handleClick(i){
         console.log("clicked");
         if(value[i] || calculateWinner(value)) {
