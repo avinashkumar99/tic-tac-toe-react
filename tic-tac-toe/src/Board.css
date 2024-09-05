@@ -1,0 +1,12 @@
+.board {
+    height: 50%;
+    width: 50%;
+    max-width: 500px;
+    max-height: 500px;
+    background-color: #686D76;
+    display: flex;
+    flex-wrap: wrap;
+    margin: 25% auto;
+    border-radius: 5px;
+    
+}
