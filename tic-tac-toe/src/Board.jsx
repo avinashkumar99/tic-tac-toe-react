@@ -3,11 +3,14 @@ import { useState } from 'react';
 import './Board.css';
 function Board() {
     const [value, setValues] = useState(Array(9).fill(null));
-    console.log(value);
+    const handleClick = ()=>{
+        console.log("clicked");
+    }
+    // console.log(value);
     return (
         <>
-        <div className='board'>
-            <Box values = {value[0]} />
+        <div className='board' >
+            <Box values = {value[0]} handleEvent={handleClick} />
             <Box values = {value[1]} />
             <Box values = {value[2]} />
             <Box values = {value[3]} />
