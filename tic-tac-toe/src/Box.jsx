@@ -1,10 +1,11 @@
 import './Box.css';
 
-function Box({values, handleEvent}){
-
+function Box({values, handleBoxClick}){
+        
+    
     return (
         <>
-        <div className="box" onClick={handleEvent}>{values}
+        <div className="box" onClick={handleBoxClick}>{values}
         </div>
         </>
     )
