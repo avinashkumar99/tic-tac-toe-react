@@ -1,9 +1,9 @@
-import Board from './Board.jsx';
-import Box from './Box.jsx';
+
+import Game from './Game.jsx';
 export default function App( ) {
   return (
     <>
-    <Board />
+    <Game />
 
     </>
   )

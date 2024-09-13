@@ -1,31 +1,34 @@
 import Box from './Box.jsx';
 import { useState } from 'react';
 import './Board.css';
-function Board() {
-    const [isXNext, setIsXNext] = useState(true);
-    const [value, setValues] = useState(Array(9).fill(null));
+function Board({isXNext, value, onPlay}) {
+    const [status, setStatus] = useState("");
     function handleClick(i){
-        console.log("clicked");
+        // console.log("clicked");
         if(value[i] || calculateWinner(value)) {
             return;
         }
         const newValue = value.slice();
         if(isXNext) {
             newValue[i] = 'X';
-            setIsXNext(false);
         }else {
             newValue[i] = 'O';
-            setIsXNext(true);
+            
         }
-
-        console.log(newValue);
-        setValues(newValue);
+        onPlay(newValue);
+        const winner = calculateWinner(newValue);
+        if(winner) {
+            setStatus(`Winner is ${winner}`);
+        } else {
+            setStatus(`Its player ${isXNext ? 'O':'X'} turn`);
+        }
     }
 
 
     console.log(value);
     return (
         <>
+        <div className="status-container">{status}</div>
         <div className='board' >
             <Box values = {value[0]} handleBoxClick={()=> handleClick(0)} />
             <Box values = {value[1]} handleBoxClick={()=> handleClick(1)} />
